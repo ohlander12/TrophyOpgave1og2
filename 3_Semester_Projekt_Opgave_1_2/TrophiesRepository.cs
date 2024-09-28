@@ -18,7 +18,6 @@ public class TrophiesRepository
         };
     }
 
-    // Returnerer en kopi af listen af alle Trophy objekter ved hjælp af copy constructor
     public List<Trophy> Get(int? year = null, string? sortBy = null)
     {
         var copyList = trophies.Select(t => new Trophy(t)).ToList(); // Copy constructor
@@ -43,13 +42,11 @@ public class TrophiesRepository
         return copyList;
     }
 
-    // Returnerer Trophy objektet med det angivne id - eller null
     public Trophy? GetById(int id)
     {
         return trophies.FirstOrDefault(t => t.Id == id);
     }
 
-    // Tilføjer trophy objektet til listen med nyt Id og returnerer det
     public Trophy Add(Trophy trophy)
     {
         int newId = trophies.Max(t => t.Id) + 1;
@@ -58,7 +55,6 @@ public class TrophiesRepository
         return trophy;
     }
 
-    // Sletter Trophy objektet med det angivne id - og returnerer det eller null
     public Trophy? Remove(int id)
     {
         Trophy? trophyToRemove = trophies.FirstOrDefault(t => t.Id == id);
@@ -69,7 +65,6 @@ public class TrophiesRepository
         return trophyToRemove;
     }
 
-    // Opdaterer Trophy objektet med det angivne id og returnerer det opdaterede objekt - eller null
     public Trophy? Update(int id, Trophy values)
     {
         Trophy? trophyToUpdate = trophies.FirstOrDefault(t => t.Id == id);

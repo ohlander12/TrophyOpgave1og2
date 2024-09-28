@@ -4,20 +4,19 @@ using System;
 [TestClass]
 public class TrophyTests
 {
-    // Test method for validating competition
     [TestMethod]
     public void ValidateCompetitionTest()
     {
-        // Case where competition name is too short
+        // Konkurrencenavn er for kort
         Trophy tooShortCompetition = new Trophy
         {
             Id = 1,
-            Competition = "AB",
+            Competition = "No",
             Year = 1990
         };
         Assert.ThrowsException<ArgumentException>(() => tooShortCompetition.ValidateCompetition());
 
-        // Case where competition name is null
+        // Konkurrencenavn er null
         Trophy nullCompetition = new Trophy
         {
             Id = 2,
@@ -26,21 +25,20 @@ public class TrophyTests
         };
         Assert.ThrowsException<ArgumentNullException>(() => nullCompetition.ValidateCompetition());
 
-        // Case where competition name is valid
+        // Gyldigt konkurrencenavn
         Trophy validCompetition = new Trophy
         {
             Id = 3,
             Competition = "Swimming",
             Year = 1995
         };
-        validCompetition.ValidateCompetition();  // This should not throw any exception
+        validCompetition.ValidateCompetition();  // Skal ikke kaste nogen undtagelse
     }
 
-    // Test method for validating year
     [TestMethod]
     public void ValidateYearTest()
     {
-        // Case where year is too early
+        // Årstal er for tidligt
         Trophy yearTooEarly = new Trophy
         {
             Id = 4,
@@ -49,7 +47,7 @@ public class TrophyTests
         };
         Assert.ThrowsException<ArgumentException>(() => yearTooEarly.ValidateYear());
 
-        // Case where year is too late
+        // Årstal er for sent
         Trophy yearTooLate = new Trophy
         {
             Id = 5,
@@ -58,21 +56,20 @@ public class TrophyTests
         };
         Assert.ThrowsException<ArgumentException>(() => yearTooLate.ValidateYear());
 
-        // Case where year is valid
+        // Gyldigt årstal
         Trophy validYear = new Trophy
         {
             Id = 6,
             Competition = "Swimming",
             Year = 2000
         };
-        validYear.ValidateYear();  // This should not throw any exception
+        validYear.ValidateYear();  // Skal ikke kaste nogen undtagelse
     }
 
-    // Test method for ToString
     [TestMethod]
     public void ValidateToStringTest()
     {
-        // Valid case for ToString
+        // Gyldigt ToString
         Trophy trophy = new Trophy
         {
             Id = 10,
