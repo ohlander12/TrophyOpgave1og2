@@ -4,7 +4,7 @@
     public string? Competition { get; set; }
     public int Year { get; set; }
 
-    // Copy constructor
+   
     public Trophy(Trophy trophy)
     {
         Id = trophy.Id;
@@ -12,7 +12,7 @@
         Year = trophy.Year;
     }
 
-    // Standard constructor
+    
     public Trophy() { }
 
     public void ValidateCompetition()

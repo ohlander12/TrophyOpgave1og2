@@ -8,8 +8,8 @@ public class RepoTests
     {
         var repo = new TrophiesRepository();
         var trophies = repo.Get();
-        trophies[0].Competition = "Modified"; // Ændrer kopien
-        var originalTrophies = repo.Get(); // Henter originalen igen
+        trophies[0].Competition = "Modified";
+        var originalTrophies = repo.Get();
         Assert.AreNotEqual("Modified", originalTrophies[0].Competition);
     }
 
@@ -38,7 +38,7 @@ public class RepoTests
         var newTrophy = new Trophy { Competition = "Hockey", Year = 2021 };
         var added = repo.Add(newTrophy);
 
-        Assert.AreEqual(6, added.Id); // Id skal være 6
+        Assert.AreEqual(6, added.Id);
         Assert.AreEqual("Hockey", added.Competition);
     }
 
@@ -51,7 +51,7 @@ public class RepoTests
         Assert.AreEqual("Football", removed.Competition);
 
         var result = repo.Remove(3);
-        Assert.IsNull(result); // Trofæet er allerede fjernet
+        Assert.IsNull(result);
     }
 
     [TestMethod]

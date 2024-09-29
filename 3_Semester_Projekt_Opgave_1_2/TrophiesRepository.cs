@@ -20,7 +20,7 @@ public class TrophiesRepository
 
     public List<Trophy> Get(int? year = null, string? sortBy = null)
     {
-        var copyList = trophies.Select(t => new Trophy(t)).ToList(); // Copy constructor
+        var copyList = trophies.Select(t => new Trophy(t)).ToList();
 
         if (year.HasValue)
         {
